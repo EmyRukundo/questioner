@@ -1,0 +1,27 @@
+{
+  "name": "questioner",
+  "version": "1.0.0",
+  "description": "questioner meetup",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EmyRukundo/questioner.git"
+  },
+  "author": "Emmanuel Rukundo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EmyRukundo/questioner/issues"
+  },
+  "homepage": "https://github.com/EmyRukundo/questioner#readme",
+  "devDependencies": {
+    "jasmine": "^3.3.1"
+  },
+  "dependencies": {
+    "eslint": "^5.11.1",
+    "express": "^4.16.4",
+    "joi": "^13.1.0"
+  }
+}
