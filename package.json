@@ -4,7 +4,8 @@
   "description": "questioner meetup",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon ../app.js",
+    "test": "mocha server/test/*.js"
   },
   "repository": {
     "type": "git",
@@ -15,13 +16,14 @@
   "bugs": {
     "url": "https://github.com/EmyRukundo/questioner/issues"
   },
-  "homepage": "https://github.com/EmyRukundo/questioner#readme",
   "devDependencies": {
-    "jasmine": "^3.3.1"
+    "http": "0.0.0"
   },
   "dependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
     "eslint": "^5.11.1",
     "express": "^4.16.4",
-    "joi": "^13.1.0"
+    "mocha": "^5.2.0"
   }
 }
