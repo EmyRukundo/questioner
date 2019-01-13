@@ -1,18 +1,18 @@
 const express = require('express');
 const router = express.Router();
 
-const quesions =[{
+const questions =[{
 
 id:1,
-user: "1", // user who posted the question
-meetupp: "1", // meetup record primary key
+user: "1",
+meetupp: "1", 
 titlee :"programming",
 bodyy:"Why many people fail to learn programming"
 
 },{
 id:2,
-user: "1", // user who posted the question
-meetupp: "2", // meetup record primary key
+user: "1", 
+meetupp: "2", 
 titlee :"programming",
 bodyy:"Why many people fail to learn programming?",
 
@@ -30,7 +30,7 @@ router.put('/:id',(req,res)=>{
     upvoteQuestion.body = req.body.body;// body of the question
     upvoteQuestion.votes = req.body.votes;
 
-    quesions.push(upvoteQuestion);
+    questions.push(upvoteQuestion);
 	 res.status(200).json({
 	 	status:200,
 	 	data:upvoteQuestion

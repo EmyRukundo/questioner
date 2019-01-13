@@ -36,9 +36,6 @@ tags: ["Andela DEvelopers", "Google DEvelopers","Facebook","Nigeria Technology c
 }
 
 ];
-
-
-
 	router.get('/',(req,res)=>{
 	res.status(200).send(upcomingMeetups);
 });

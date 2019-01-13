@@ -44,5 +44,4 @@ meetup.push(createMeetup);
 		data: createMeetup
 	});
 });
-
 module.exports=router;

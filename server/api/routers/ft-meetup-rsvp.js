@@ -11,7 +11,6 @@ images : '[String, String]', // OPTIONAL: URL to the image location
 topic : 'How to become world class developer',
 happeningOn :'14/01/2018', // when the meetup is holding
 Tags : ['Software development','computer science'],
-
 }, {
 	id :2,
 createdOn : '04/01/2018',
@@ -22,12 +21,10 @@ happeningOn :'14/01/2018', // when the meetup is holding
 Tags : ['Software development','computer science'],}];
 
 
-
 router.get('/:id/rsvp',(req,res)=>{
 	res.status(200).json({
-		message: 'you have reached rsvp for a meetup'
+		message: 'I would to be part of the meetup!'
 	});
 });
-
 module.exports=router;
 
