@@ -1,2 +1,2 @@
 # questioner
-UI template for Questioner
+meetup web application called"Questioner"
