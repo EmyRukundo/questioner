@@ -74,39 +74,41 @@ describe('/GET a specific meetup record',() =>{
 //RSVP
 
 describe('POST RSVP meetup',()=>{
-	it('it should be to reach RSVP',(done)=>{
 
-		const rsvpId=2;
+	const rsvpId=2;
+	it('it should be to reach RSVP',()=>{
 		chai.request(server)
 		.get('api/v1/meetup/:id/rsvpId')
 		.end((err,res) =>{
 			res.should.have.status(200);
-			done();
+			res.body.should.be.a('object');
+			
 		});
 	});
 });
 
 // test create a meetup
 
-
 describe('/POST create a meetup',()=>{
-  it('it should be able to create a meetup',(done)=>{
+  it('it should be able to create a meetup',()=>{
   	const mtp ={
-  		id: meetups.length +1,
-  		createdOn: '12/01/2018',
-  		location:'telecom house',
-  		topic: 'sunday bible',
+  		id: meetup.length +1,
+  		createdOn: '13/01/2018',
+  		location:'Kigali Height',
+  		topic: 'Andela learning commuty',
   	};
   	chai.request(server)
   	.post('/api/v1/meetup')
   	.send(mtp)
   	.end((err,res)=>{
-  		res.should.have.status(201);
+  		res.should.have.status(200);
   		res.body.should.be.a('object');
-  		done();
+ 		
   	});
   });
 });
+
+// test create a question
 
 describe('/Post create a question',()=>{
 	it('it should be able to create a question',(done)=>{
@@ -127,7 +129,9 @@ describe('/Post create a question',()=>{
 	});
 });
 
-describe('/patch/:id question (downvote)',()=>{
+// test updatevote question
+
+describe('/put/:id question (downvote)',()=>{
 	it('it should UPDATE(downvote) a question given the id',(done) =>{
 		const qId =100;
 		chai.request(server)
