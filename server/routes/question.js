@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.get('/',questionsController.getQuestions);
 router.post('/',questionsController.createQuestion);
-router.patch('/:id/:upvote',upvoteContoller.UpVoteQuestion);
-router.patch('/:id/:downvote',downvoteController.DownVoteQuestion);
+router.patch('/:id/upvote',upvoteContoller.upvoteQuestion);
+router.patch('/:id/downvote',downvoteController.downvoteQuestion);
 
 module.exports=router;

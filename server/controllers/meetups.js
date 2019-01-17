@@ -22,8 +22,8 @@ const createMeetups = (req,res)=>{
 }
 meetups.push(newMeetup);
 fs.writeFileSync(path.resolve(__dirname,'../data/meetups.json'),JSON.stringify(meetups,null,2));
-	res.status(200).json({
-		status: 200,
+	res.status(201).json({
+		status: 201,
 		data: newMeetup
 	});
 }
