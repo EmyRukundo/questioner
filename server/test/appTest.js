@@ -3,51 +3,18 @@ const chai = require('chai');
 const should = chai.should();
 const chaiHttp = require('chai-http');
 const server = require('../config/app.js');
-
+const meetup = require('../data/meetups.json');
+const question = require('../data/questions.json');
 const expect = chai.expect;
 chai.use(chaiHttp);
 
 
-const meetup=[
-	{
-id :1,
-createdOn : '04/01/2018',
-location :'Kigali-Kacyiru',
-topic : 'How to become world class developer',
-happeningOn :'14/01/2018', // when the meetup is holding
-Tags : ['Software development','computer science'],
-
-}, {
-	id :2,
-createdOn : '04/01/2018',
-location :'Kigali-Kacyiru',
-topic : 'How to become world class developer',
-happeningOn :'14/01/2018', // when the meetup is holding
-Tags : ['Software development','computer science'],}
-];
-
-const question=[{
-
-id:1,
-user: "1", 
-meetupp: "1", 
-titlee :"programming",
-bodyy:"Why many people fail to learn programming"
-
-},{
-id:2,
-user: "1", 
-meetupp: "2",
-titlee :"programming",
-bodyy:"Why many people fail to learn programming?",
-
-}];
 
 
 describe('/GET all meetups',()=>{
 	it('it should return all the meetups',(done)=>{
  		chai.request(server)
- 		.get('/api/v1/meetup')
+ 		.get('/api/v1/meetups')
  		.end((err,res)=>{
  			res.should.have.status(200);
  			res.body.should.be.a('object');
@@ -61,7 +28,7 @@ describe('/GET a specific meetup record',() =>{
 	const num=1;
 	it('it should return a meetup', (done)=>{
 		chai.request(server)
-		.get('/api/v1/meetup/${num}')
+		.get('/api/v1/meetups/${num}')
 		.end((err,res) =>{
 			res.should.have.status(200);
 			res.body.should.be.a('object');
@@ -71,14 +38,13 @@ describe('/GET a specific meetup record',() =>{
 	});
 });
 
-//RSVP
+//Test RSVP
 
 describe('POST RSVP meetup',()=>{
 
-	const rsvpId=2;
 	it('it should be to reach RSVP',()=>{
 		chai.request(server)
-		.get('api/v1/meetup/:id/rsvpId')
+		.get('api/v1/:id/rsvps')
 		.end((err,res) =>{
 			res.should.have.status(200);
 			res.body.should.be.a('object');
@@ -98,7 +64,7 @@ describe('/POST create a meetup',()=>{
   		topic: 'Andela learning commuty',
   	};
   	chai.request(server)
-  	.post('/api/v1/meetup')
+  	.post('/api/v1/meetups')
   	.send(mtp)
   	.end((err,res)=>{
   		res.should.have.status(200);
@@ -144,12 +110,3 @@ describe('/put/:id question (downvote)',()=>{
 });
 
 });
-
-
-
-
-
-
-
-
-
