@@ -3,8 +3,8 @@
 
 [![Coverage Status](https://coveralls.io/repos/github/EmyRukundo/questioner/badge.svg?branch=develop)](https://coveralls.io/github/EmyRukundo/questioner?branch=develop)
 
-<a href="https://codeclimate.com/github/EmyRukundo/questioner/maintainability"><img src="https://api.codeclimate.com/v1/badges/aa215b279d54af5bd76c/maintainability" /></a>
+[![Maintainability](https://api.codeclimate.com/v1/badges/aa215b279d54af5bd76c/maintainability)](https://codeclimate.com/github/EmyRukundo/questioner/maintainability)
 
-<a href="https://codeclimate.com/github/EmyRukundo/questioner/test_coverage"><img src="https://api.codeclimate.com/v1/badges/aa215b279d54af5bd76c/test_coverage" /></a>
+
 
 
