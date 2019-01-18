@@ -11,10 +11,16 @@ app.use(body_parse.json());
 app.use(body_parse.urlencoded({extended: false}));
 
 
-const meetupsRouter = require('../routes/meetup-route');
-const questionsRouter = require('../routes/question-route');
-const rsvpRouter = require('../routes/rsvp-route');
+const meetupsRouter = require('../routes/meetup');
+const questionsRouter = require('../routes/question');
+const rsvpRouter = require('../routes/rsvp');
 
+app.get('/',(req,res) => {
+	res.status(202).send('Welcome!! Here you go interact with the APIs');
+});
+app.get('/*',(req,res) => {
+	res.status(404).send('This is not the page you are looking for');
+});
 
 app.use('/api/v1/meetups/',meetupsRouter);
 app.use('/api/v1/questions/',questionsRouter);

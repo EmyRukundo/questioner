@@ -1,4 +1,4 @@
-const meetups = require('../models/meetup-modal.js');
+const meetups = require('../models/meetup.js');
 const fs = require('fs');
 const path = require('path');
 const getMeetups =  (req,res)=>{

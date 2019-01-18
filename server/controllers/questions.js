@@ -1,6 +1,9 @@
-const questions = require('../models/question-modal.js');
+const questions = require('../models/question.js');
 const fs = require('fs');
 const path = require('path');
+
+
+
 const getQuestions =  (req,res)=>{
 	res.json({
 		status:200,
@@ -10,13 +13,20 @@ const getQuestions =  (req,res)=>{
 
 const createQuestion = (req,res)=>{
 
+ 
+
+    const userId=1;
 	const newQuestion ={
 		id: questions.length +1,
-		user: req.body.use,
-		meetupp: req.body.meetupp,
-		titlee: req.body.titlee,
-		bodyy: req.body.bodyy
-
+		createdOn: new Date(),
+		createdBy: userId,
+		meetup: req.params.id,
+		title: req.body.title,
+		body: req.body.question,
+		upvotes:0,
+		downvotes:0,
+		upvotedBy:[],
+        downvotedBy:[],
 	};
 
 	questions.push(newQuestion);
