@@ -18,5 +18,15 @@
     "body": "you can ask anything",
     "upvotes": 0,
     "downvotes": 0
+  },
+  {
+    "id": 3,
+    "createdOn": "2019-01-18T11:20:12.892Z",
+    "createdBy": 1,
+    "meetup": "4",
+    "title": "Growth mindset",
+    "body": "challenge 1,2 is what is matters",
+    "upvotes": 0,
+    "downvotes": 0
   }
 ]

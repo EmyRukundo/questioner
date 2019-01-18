@@ -1,5 +1,4 @@
 [
-
   {
     "id": 7,
     "createdOn": "18/01/2019",
@@ -23,5 +22,12 @@
     "images": "pic.jpeg",
     "topic": "Success is all matters",
     "happeningOn": "01/01/2020"
+  },
+  {
+    "id": 4,
+    "location": "Lagos",
+    "images": "image.jpeg",
+    "topic": "Knowledge",
+    "happeningOn": "19/01/2019"
   }
 ]
