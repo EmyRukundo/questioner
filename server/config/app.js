@@ -24,7 +24,7 @@ app.get('/*',(req,res) => {
 
 app.use('/api/v1/meetups/',meetupsRouter);
 app.use('/api/v1/questions/',questionsRouter);
-app.use('/api/v1/:id/rsvps/',rsvpRouter);
+app.use('/api/v1/rsvps/',rsvpRouter);
 
 //PORT
 const port = process.env.PORT || 3000;
