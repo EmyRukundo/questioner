@@ -1,62 +1,27 @@
-[ 
-  {
-    "id": 2,
-    "location": "Kigali",
-    "happeningOn": "01/02/2010"
-  },
-  {
-    "id": 3,
-    "location": "Kigali cycle 2",
-    "happeningOn": "02/02/2019"
-  },
-  {
-    "id": 4,
-    "location": "Kigali cycle 2",
-    "happeningOn": "23/01/2019"
-  },
-  {
-    "id": 5,
-    "location": "Kigali cycle 2",
-    "happeningOn": "23/02/2019"
-  },
-  {
-    "id": 6,
-    "location": "Kigali cycle 2",
-    "happeningOn": "23/02/2019"
-  },
+[
+
   {
     "id": 7,
-    "location": "Kigali cycle 2",
-    "happeningOn": "23/02/2019"
-  },
-  {
-    "id": 7,
-    "createdOn": "13/01/2018",
-    "location": "Kigali Height",
-    "topic": "Andela learning commuty"
+    "createdOn": "18/01/2019",
+    "location": "Lagos",
+    "images": "image.jpeg",
+    "topic": "Knowledge",
+    "happeningOn": "19/01/2019"
   },
   {
     "id": 8,
-    "createdOn": "13/01/2018",
-    "location": "Kigali Height",
-    "topic": "Andela learning commuty"
+    "createdOn": "18/01/2019",
+    "location": "Kigali",
+    "images": "picture.jpeg",
+    "topic": "Success",
+    "happeningOn": "18/01/2019"
   },
   {
     "id": 9,
-    "createdOn": "13/01/2018",
-    "location": "Kigali Height",
-    "topic": "Andela learning commuty"
-  },
-  {
-    "id": 10,
-    "createdOn": "13/01/2018",
-    "location": "Kigali Height",
-    "topic": "Andela learning commuty"
-  },
-  {
-    "id": 11,
-    "createdOn": "13/01/2018",
-    "location": "Kigali Height",
-    "topic": "Andela learning commuty"
+    "createdOn": "23/10/2019",
+    "location": "Nairobe",
+    "images": "pic.jpeg",
+    "topic": "Success is all matters",
+    "happeningOn": "01/01/2020"
   }
 ]

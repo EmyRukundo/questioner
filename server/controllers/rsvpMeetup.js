@@ -11,7 +11,9 @@ const rsvpMeetup = (req,res)=>{
 	};
 	rsvp.push(newRsvpMeetup);
 	fs.writeFileSync(path.resolve(_dirname,'../data/rsvpMeetups.json'),JSON.stringify(rsvp,null,8));
-     return res.json({status:200, data:rsvp});
+     return res.json({status:200,
+                       data:rsvp
+                   });
 };
 module.exports={
 	rsvpMeetup
