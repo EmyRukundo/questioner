@@ -1,7 +1,61 @@
 [
-  {
-    "id": 2,
-    "titlee": "how to become world class software developer",
-    "bodyy": "Andela software developers"
-  }
+        {
+                "id": 2,
+                "titlee": "how to become world class software developer",
+                "bodyy": "Andela software developers"
+        },
+        {
+                "id": 2
+        },
+        {
+                "id": 3
+        },
+        {
+                "id": 4,
+                "createdOn": "2019-01-18T03:12:33.887Z",
+                "createdBy": 1,
+                "upvotes": 0,
+                "downvotes": 0,
+                "upvotedBy": [],
+                "downvotedBy": []
+        },
+        {
+                "id": 5,
+                "createdOn": "2019-01-18T03:21:33.882Z",
+                "createdBy": 1,
+                "upvotes": 0,
+                "downvotes": 0,
+                "upvotedBy": [],
+                "downvotedBy": []
+        },
+        {
+                "id": 6,
+                "createdOn": "2019-01-18T03:26:54.947Z",
+                "createdBy": 1,
+                "title": "Kigali bootcamp Andela",
+                "upvotes": 0,
+                "downvotes": 0,
+                "upvotedBy": [],
+                "downvotedBy": []
+        },
+        {
+                "id": 7,
+                "createdOn": "2019-01-18T03:27:55.557Z",
+                "createdBy": 1,
+                "title": "world class software developer",
+                "upvotes": 0,
+                "downvotes": 0,
+                "upvotedBy": [],
+                "downvotedBy": []
+        },
+        {
+                "id": 8,
+                "createdOn": "2019-01-18T03:29:22.274Z",
+                "createdBy": 1,
+                "title": "Successful life",
+                "upvotes": 0,
+                "downvotes": 0,
+                "upvotedBy": [],
+                "downvotedBy": []
+        }
 ]

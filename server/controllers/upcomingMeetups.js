@@ -1,4 +1,4 @@
-const meetups = require('../models/meetup');
+const meetups = require('../models/meetup.js');
 
 const upcomingMeetup =(meetup)=>{
   
@@ -9,9 +9,9 @@ const upcomingMeetup =(meetup)=>{
   	return true;
 
 }
-  	console.log(meetupDate.getTime());
+  	
 return false;
-
+console.log(meetupDate.getTime());
 };
 
 const getAllUpcomingMeetups = (req,res)=>{
