@@ -1,5 +1,5 @@
 const meetupsController = require('../controllers/meetups');
-const upc = require('../controllers/upcoming-meetups');
+const upc = require('../controllers/upcomingMeetups');
 
 const express = require('express');
 const router = express.Router();

@@ -1,4 +1,4 @@
-const rsvp_meetups = require('../models/rsvp-meetup-modal.js');
+const rsvp_meetups = require('../models/rsvpMeetup.js');
 const fs = require('fs');
 const path = require('path');
 
@@ -10,7 +10,7 @@ const rsvpMeetup = (req,res)=>{
 		status:req.body.status,
 	};
 	rsvpMeetup.push(newRsvpMeetup);
-	fs.writeFileSync(path.resolve(_dirname,'../data/rsvp-meetups.json'),JSON.stringify(rsvp_meetups,null,8));
+	fs.writeFileSync(path.resolve(_dirname,'../data/rsvpMeetups.json'),JSON.stringify(rsvp_meetups,null,8));
 };
 module.exports={
 	rsvpMeetup

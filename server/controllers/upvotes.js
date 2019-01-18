@@ -1,6 +1,6 @@
 const fs = ('fs');
 const path = ('path');
-const questions = require('../models/question-modal.js');
+const questions = require('../models/question.js');
 
 const equate= (value1,value2) => {
   return parseInt(value1,10) === parseInt(value2,10);

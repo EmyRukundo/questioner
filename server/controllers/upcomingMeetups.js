@@ -1,4 +1,4 @@
-const meetups = require('../models/meetup-modal');
+const meetups = require('../models/meetup');
 
 const upcomingMeetup =(meetup)=>{
   
