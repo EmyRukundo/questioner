@@ -4,9 +4,7 @@ const downvoteController = require('../controllers/downvotes');
 const express = require('express');
 const router = express.Router();
 
-
-router.get('/',questionsController.getQuestions);
-router.post('/',questionsController.createQuestion);
+// router.post('/',questionsController.createQuestion);
 router.patch('/:id/upvote',upvoteContoller.upvoteQuestion);
 router.patch('/:id/downvote',downvoteController.downvoteQuestion);
 
