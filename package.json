@@ -4,9 +4,10 @@
   "description": "questioner meetup",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon server/config/app.js",
+    "start": "node server/config/app.js",
     "test": "mocha server/test/*.js",
-    "coveralls": "nyc report --reporter=text-lcov | coveralls"
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "dev":"nodemon server/config/app.js"
   },
   "repository": {
     "type": "git",

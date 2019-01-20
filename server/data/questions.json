@@ -28,5 +28,23 @@
     "body": "challenge 1,2 is what is matters",
     "upvotes": 0,
     "downvotes": 0
+  },
+  {
+    "id": 4,
+    "createdOn": "2019-01-20T07:47:31.028Z",
+    "createdBy": 1,
+    "meetup": "8",
+    "upvotes": 0,
+    "downvotes": 0
+  },
+  {
+    "id": 5,
+    "createdOn": "2019-01-20T07:51:26.504Z",
+    "createdBy": 1,
+    "meetup": "8",
+    "title": "Be the best you can become",
+    "body": "Everything is gonna be allright",
+    "upvotes": 0,
+    "downvotes": 0
   }
 ]

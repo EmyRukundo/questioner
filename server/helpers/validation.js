@@ -11,6 +11,7 @@ const Validator = {
     password: joi.string().min(8).required(),
     password2: joi.string().min(8).required(),
   }),
+  
   questionSchema: joi.object().keys({
     title: joi.string().required(),
     body: joi.string().required(),
