@@ -9,7 +9,7 @@ const Validation = require('../helpers/validation');
 const getQuestions =  (req,res)=>{
 	const onMeetup = req.params.id;
 	const quesionsOnMeetup =  questions.filter((quest) => parseInt(quest.meetup) === parseInt(onMeetup));
-	res.json({
+	res.status(200).json({
 		status:200,
 		data:quesionsOnMeetup
 	})
