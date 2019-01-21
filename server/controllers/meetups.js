@@ -11,13 +11,6 @@ const getMeetups =  (req,res)=>{
 		data:meetups
 	});
 }
-
-
-
-
-
-
-
 const createMeetups = (req,res)=>{
 	joi.validate(req.body, Validation.meetupSchema, Validation.validationOption, (err, result) => {
     if (err) {
