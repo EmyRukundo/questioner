@@ -6,11 +6,149 @@
     "meetup": "8",
     "title": "Growth mindset",
     "body": "challenge 1,2 is what is matters",
-    "upvotes": 0,
-    "downvotes": 1,
-    "downvotedBy": [
+    "upvotes": 1,
+    "downvotes": 0,
+    "downvotedBy": [],
+    "upvotedBy": [
+      1
+    ]
+  },
+  {
+    "id": 2,
+    "createdOn": "2019-01-22T15:21:40.901Z",
+    "createdBy": 1,
+    "meetup": "8",
+    "title": "andela",
+    "body": "bootcamp",
+    "upvotes": 1,
+    "downvotes": 0,
+    "upvotedBy": [
       1
     ],
-    "upvotedBy": []
+    "downvotedBy": []
+  },
+  {
+    "id": 3,
+    "createdOn": "2019-01-22T15:27:38.036Z",
+    "createdBy": 1,
+    "meetup": "8",
+    "title": "Kigali",
+    "body": "bootcamp Andela",
+    "upvotes": 0,
+    "downvotes": 0,
+    "upvotedBy": [],
+    "downvotedBy": []
+  },
+  {
+    "id": 4,
+    "createdOn": "2019-01-22T15:28:22.628Z",
+    "createdBy": 1,
+    "meetup": "8",
+    "title": "Kigali",
+    "body": "bootcamp Andela",
+    "upvotes": 0,
+    "downvotes": 0,
+    "upvotedBy": [],
+    "downvotedBy": []
+  },
+  {
+    "id": 5,
+    "createdOn": "2019-01-22T15:28:26.867Z",
+    "createdBy": 1,
+    "meetup": "8",
+    "title": "Kigali",
+    "body": "bootcamp Andela",
+    "upvotes": 0,
+    "downvotes": 0,
+    "upvotedBy": [],
+    "downvotedBy": []
+  },
+  {
+    "id": 6,
+    "createdOn": "2019-01-22T15:28:35.042Z",
+    "createdBy": 1,
+    "meetup": "8",
+    "body": "bootcamp Andela",
+    "upvotes": 0,
+    "downvotes": 0,
+    "upvotedBy": [],
+    "downvotedBy": []
+  },
+  {
+    "id": 7,
+    "createdOn": "2019-01-22T15:29:42.002Z",
+    "createdBy": 1,
+    "meetup": "8",
+    "body": "bootcamp Andela",
+    "upvotes": 0,
+    "downvotes": 0,
+    "upvotedBy": [],
+    "downvotedBy": []
+  },
+  {
+    "id": 8,
+    "createdOn": "2019-01-22T15:32:28.227Z",
+    "createdBy": 1,
+    "meetup": "8",
+    "body": "bootcamp Andela",
+    "upvotes": 0,
+    "downvotes": 0,
+    "upvotedBy": [],
+    "downvotedBy": []
+  },
+  {
+    "id": 9,
+    "createdOn": "2019-01-22T15:33:44.513Z",
+    "createdBy": 1,
+    "meetup": "8",
+    "body": "bootcamp Andela",
+    "upvotes": 0,
+    "downvotes": 0,
+    "upvotedBy": [],
+    "downvotedBy": []
+  },
+  {
+    "id": 10,
+    "createdOn": "2019-01-22T15:36:58.068Z",
+    "createdBy": 1,
+    "meetup": "8",
+    "body": "bootcamp Andela",
+    "upvotes": 0,
+    "downvotes": 0,
+    "upvotedBy": [],
+    "downvotedBy": []
+  },
+  {
+    "id": 11,
+    "createdOn": "2019-01-22T15:37:01.779Z",
+    "createdBy": 1,
+    "meetup": "8",
+    "body": "bootcamp Andela",
+    "upvotes": 0,
+    "downvotes": 0,
+    "upvotedBy": [],
+    "downvotedBy": []
+  },
+  {
+    "id": 12,
+    "createdOn": "2019-01-22T15:37:27.479Z",
+    "createdBy": 1,
+    "meetup": "8",
+    "body": "bootcamp Andela",
+    "upvotes": 0,
+    "downvotes": 0,
+    "upvotedBy": [],
+    "downvotedBy": []
+  },
+  {
+    "id": 13,
+    "createdOn": "2019-01-22T15:39:08.633Z",
+    "createdBy": 1,
+    "meetup": "8",
+    "body": "bootcamp Andela",
+    "upvotes": 0,
+    "downvotes": 0,
+    "upvotedBy": [],
+    "downvotedBy": []
   }
 ]

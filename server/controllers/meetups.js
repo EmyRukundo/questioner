@@ -15,7 +15,7 @@ const createMeetups = (req,res)=>{
 	joi.validate(req.body, Validation.meetupSchema, Validation.validationOption, (err, result) => {
     if (err) {
       return res.json({
-        status: 401,
+        status: 400,
         error: err.details[0].message,
       })
   }

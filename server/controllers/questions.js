@@ -17,6 +17,13 @@ const getQuestions =  (req,res)=>{
 
 const createQuestion = (req,res)=>{
  joi.validate(req.body, Validation.questionSchema, Validation.validationOption, (err, result) => {
+ 	if (err) {
+      return res.json({
+        status: 400,
+        error: err.details[0].message,
+      })
+  }
+  else{
     const userId=1;
 	const newQuestion ={
 		id: questions.length +1,
@@ -27,6 +34,8 @@ const createQuestion = (req,res)=>{
 		body: req.body.body,
 		upvotes:0,
 		downvotes:0,
+		upvotedBy:[],
+		downvotedBy:[]
 		
 	};
 
@@ -35,10 +44,11 @@ fs.writeFileSync(path.resolve(__dirname,'../data/questions.json'),JSON.stringify
 	res.status(200).json({
 		status: 200,
 		data: newQuestion
-	 });
-})
-}
+});
+  }
+});
 
+}
 module.exports = {
 	getQuestions,createQuestion
 }

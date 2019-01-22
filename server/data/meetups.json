@@ -29,5 +29,12 @@
     "images": "image.jpeg",
     "topic": "Knowledge",
     "happeningOn": "19/01/2019"
+  },
+  {
+    "id": 5,
+    "location": "Kigali",
+    "images": "image.jpg",
+    "topic": "Andela",
+    "happeningOn": "26/01/2019"
   }
 ]

@@ -6,7 +6,7 @@ const rsvpMeetup = (req,res)=>{
 	const newRsvpMeetup={
 		id: rsvp.length+1,
 		specific_meetup: req.params.id,
-		user:1,
+		meetup_id:1,
 		status:req.body.status,
 	};
 	rsvp.push(newRsvpMeetup);
