@@ -25,10 +25,16 @@ link of the app on Heroku: https://qmeetup.herokuapp.com/
 Here, it is a list of endpoints that you should use to access API Endpoints
 
 GET/api/v1/meetups  -> for get all meetups
+
 GET/api/v1/meetups/:id  ->for get a specific meetup with the given id
+
 GET/api/v1/meetups/upcomming  ->get all upcomming meetups
+
 POST/api/v1/meetups ->for create new meetup
+
 POST/api/v1/meetups/:id/rsvp ->for confirming to attend meetup with the given id as user
+
 PUT/api/v1/questions/:id/upvote  up vote a question with give id parameter
+
 PUT/api/v1/questions/:id/downvote  down vote a question with give id parameter
    
