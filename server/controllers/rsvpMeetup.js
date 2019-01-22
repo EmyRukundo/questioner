@@ -10,7 +10,7 @@ const rsvpMeetup = (req,res)=>{
 		status:req.body.status,
 	};
 	rsvp.push(newRsvpMeetup);
-	fs.writeFileSync(path.resolve(_dirname,'../data/rsvpMeetups.json'),JSON.stringify(rsvp,null,8));
+	fs.writeFileSync(path.resolve(__dirname,'../data/rsvpMeetups.json'),JSON.stringify(rsvp,null,8));
      return res.json({status:200,
                        data:newRsvpMeetup
                    });
