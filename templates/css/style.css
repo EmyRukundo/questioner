@@ -318,6 +318,10 @@ button:hover {
   width:100px;
 
 }
+#first{
+  float:left;
+  width:50%;
+}
 
 /* footer at the bottom */
 .footer {
