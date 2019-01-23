@@ -25,6 +25,9 @@
     "should": "^13.2.3"
   },
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
     "body-parse": "^0.1.0",
     "chai": "^4.2.0",
     "chai-http": "^4.2.1",
