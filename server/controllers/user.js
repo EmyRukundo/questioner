@@ -1,13 +1,12 @@
-const path = require ('path');
-const fs = require ('fs');
-const joi = require ('joi');
-const uuid = require ('uuid');
-const user = require ('../models/user');
-const Validation = require ('../helpers/validation');
+import uuid from 'uuid';
+import joi from 'joi';
+import Helper from '../helpers/helpers';
+import Connection from '../db/connect';
+import Validation from '../helpers/validation';
 
 
-const registerUser = (req, res) => {
-  joi.validate(req.body, Validation.userSchema, Validation.validationOption, (err, result) => {
+const registerUser = async (req, res) => {
+  joi.validate(req.body, Validation.userSchema, Validation.validationOption, async (err, result) => {
     if (err) {
       return res.json({
         status: 400,
@@ -15,26 +14,42 @@ const registerUser = (req, res) => {
       });
     }
 
-    const newUser = {
-      id: uuid.v4(),
-      firstname: result.firstname,
-      lastname: result.lastname,
-      othername: result.othername,
-      email: result.email,
-      phoneNumber: result.phoneNumber,
-      username: result.username,
-      registered: new Date(),
-      password: result.password,
-      isAdmin: false,
-    };
-    user.push(newUser);
-    fs.writeFileSync(path.resolve(__dirname, '../data/user.json'), JSON.stringify(user, null, 2));
-    res.json({
-      status: 200,
-      data: newUser,
-    });
+    const newUser = [
+      uuid.v4(), 
+      result.firstname,
+      result.othername,
+      result.lastname,
+      result.email,
+      result.username,
+      result.phoneNumber,
+      new Date(), 
+      0, 
+      Helper.hashPassword(result.password, 12),
+      'ABX#4454$', 
+      0, 
+    ];
+    const sql = `INSERT INTO user_table (id,firstname,othername,
+      lastname,email,username,phone_number,registered,is_admin,password,token,confirmed)
+     VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12) RETURNING *`;
+
+    const user = Database.executeQuery(sql, newUser);
+    user.then((result) => {
+      if (result.rows.length) {
+        return res.status(201).json({
+          status: 201,
+          data: result.rows,
+        });
+      }
+
+      return res.status(400).json({
+        status: 400,
+        error: 'Oops no data found!',
+      });
+    }).catch(error => res.status(500).json({
+      status: 500,
+      error: `Internal server Error ${error}`,
+    }));
   });
 };
-module.exports ={
-  registerUser
-}
+export default registerUser;
+
