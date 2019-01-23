@@ -12,5 +12,4 @@ router.get('/',meetupsController.getMeetups);
 router.post('/:id/questions',questionsController.createQuestion);
 router.post('/',meetupsController.createMeetups);
 
-
 module.exports=router;

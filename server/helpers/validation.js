@@ -9,7 +9,7 @@ const Validator = {
     username: joi.string().regex(/^[a-zA-Z0-9_-]/).min(5).required(),
     phoneNumber: joi.string().regex(/\d{10}/),
     password: joi.string().min(8).required(),
-    password2: joi.string().min(8).required(),
+    
   }),
   
   questionSchema: joi.object().keys({

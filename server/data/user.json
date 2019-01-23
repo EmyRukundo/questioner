@@ -1,1 +1,74 @@
-[]
+[
+  {
+    "id": "0fb28ecb-e441-4ddf-9307-bf541bf0f0e2",
+    "firstname": "Emmanuel",
+    "lastname": "Rukundo",
+    "othername": "Ebouer",
+    "email": "rukundoemma@gmail.com",
+    "phoneNumber": "0784949641",
+    "username": "EmyRukundo",
+    "registered": "2019-01-22T18:29:30.274Z",
+    "password": "wegotofellowship",
+    "isAdmin": false
+  },
+  {
+    "id": "1489de4d-9675-42fa-9974-9ef2ca465ac8",
+    "firstname": "Emmanuel",
+    "lastname": "Rukundo",
+    "othername": "Ebouer",
+    "email": "rukundoemma@gmail.com",
+    "phoneNumber": "0784949641",
+    "username": "EmyRukundo",
+    "registered": "2019-01-22T18:30:24.521Z",
+    "password": "wegotofellowship",
+    "isAdmin": false
+  },
+  {
+    "id": "8af27014-245c-4b83-a074-4cda6f14d1ea",
+    "firstname": "Alain",
+    "lastname": "Uwineza",
+    "othername": "Tresor",
+    "email": "alain@gmail.com",
+    "phoneNumber": "0782394876",
+    "username": "AlainTresor",
+    "registered": "2019-01-22T18:32:29.945Z",
+    "password": "kabebe123",
+    "isAdmin": false
+  },
+  {
+    "id": "3771ddb6-7a02-46d9-b554-b98669196e11",
+    "firstname": "Alain",
+    "lastname": "Uwineza",
+    "othername": "Tresor",
+    "email": "alain@gmail.com",
+    "phoneNumber": "0782394876",
+    "username": "AlainTresor",
+    "registered": "2019-01-22T18:37:14.808Z",
+    "password": "kabebe123",
+    "isAdmin": false
+  },
+  {
+    "id": "2efc07d8-5a4f-408d-b19a-bb9a4bf5a9a1",
+    "firstname": "Alain",
+    "lastname": "Uwineza",
+    "othername": "Tresor",
+    "email": "alain@gmail.com",
+    "phoneNumber": "0782394876",
+    "username": "AlainTresor",
+    "registered": "2019-01-22T18:37:28.975Z",
+    "password": "kabebe123",
+    "isAdmin": false
+  },
+  {
+    "id": "85bd549e-7933-404a-b66e-fb6e6fa26066",
+    "firstname": "Alain",
+    "lastname": "Uwineza",
+    "othername": "Tresor",
+    "email": "alain@gmail.com",
+    "phoneNumber": "0782394876",
+    "username": "AlainTresor",
+    "registered": "2019-01-22T18:53:05.511Z",
+    "password": "kabebe123",
+    "isAdmin": false
+  }
+]

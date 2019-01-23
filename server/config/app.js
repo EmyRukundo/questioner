@@ -17,10 +17,11 @@ const userRouter = require('../routes/user');
 
 
 
+
 app.use('/api/v1/meetups/',meetupsRouter);
 app.use('/api/v1/questions/',questionsRouter);
 app.use('/api/v1/rsvps/',rsvpRouter);
-app.use('api/v1/user/',userRouter);
+app.use('/api/v1/user/',userRouter);
 app.get('/',(req,res) => {
 	res.status(202).send('Welcome!! Here you go. Its time to interact with the APIs');
 });

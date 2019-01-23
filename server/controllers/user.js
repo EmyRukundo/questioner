@@ -7,7 +7,7 @@ const Validation = require ('../helpers/validation');
 
 
 const registerUser = (req, res) => {
-  joi.validate(req.body, Validation.userchema, Validation.validationOption, (err, result) => {
+  joi.validate(req.body, Validation.userSchema, Validation.validationOption, (err, result) => {
     if (err) {
       return res.json({
         status: 400,
@@ -25,7 +25,6 @@ const registerUser = (req, res) => {
       username: result.username,
       registered: new Date(),
       password: result.password,
-      confirmPassword: result.confirmPassword,
       isAdmin: false,
     };
     user.push(newUser);
