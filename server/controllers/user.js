@@ -1,8 +1,9 @@
 import uuid from 'uuid';
 import joi from 'joi';
+import Validation from '../helpers/validation';
 import Helper from '../helpers/helpers';
 import Connection from '../db/connect';
-import Validation from '../helpers/validation';
+
 
 
 const registerUser = async (req, res) => {
@@ -32,7 +33,7 @@ const registerUser = async (req, res) => {
       lastname,email,username,phone_number,registered,is_admin,password,token,confirmed)
      VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12) RETURNING *`;
 
-    const user = Database.executeQuery(sql, newUser);
+    const user = Connection.executeQuery(sql, newUser);
     user.then((result) => {
       if (result.rows.length) {
         return res.status(201).json({
