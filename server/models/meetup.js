@@ -1,5 +1,9 @@
-const fs = require('fs');
-const path = require('path');
-const meetupData = fs.readFileSync(path.resolve(__dirname,'../data/meetups.json'),{encoding:'utf8'});
-const meetups = JSON.parse(meetupData);
-module.exports = meetups;
+import Connection from '../db/connect';
+
+const meetups = async () => {
+  const sql = 'SELECT * FROM meetup_table';
+  const { rows } = await Connection.executeQuery(sql);
+  return [...rows];
+};
+
+export default meetups;

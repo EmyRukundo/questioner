@@ -18,17 +18,20 @@ const unknownUser = (req, res) => {
         password: result.password,
       };
       const sql = `SELECT * FROM user_table WHERE email = '${userAccount.email}'`;
-      const user = Database.executeQuery(sql);
+      const user = Connection.executeQuery(sql);
       user.then((userResult) => {
         if (userResult.rows.length) {
           if (Helper.comparePassword(userAccount.password, userResult.rows[0].password)) {
-            const token = jsonWebToken.sign({user: userResult.rows }, 'secret_@1!9(9)6^%');
-            req.token = token;
-            return res.status(202).json({ status: 202, data: userResult.rows, token });
+            jsonWebToken.sign({user: userResult.rows }, 'secret',(err,token)=>{
+                  if(err){
+                    console.log(err);
+                  }
+              return res.status(202).json({ status: 202, data: userResult.rows, token });
+            });
           }
         }
         else {
-          return res.status(403).json({ status: 403, error: 'wrong username combination or password' });
+          return res.status(403).json({ status: 403, error: 'wrong combination  username  or password' });
         }
       }).catch(error => res.status(500).json({ status: 500, error: `Internal server error ${error}` }));
     });

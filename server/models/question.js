@@ -1,5 +1,9 @@
-const fs = require('fs');
-const path = require('path');
-const questionData = fs.readFileSync(path.resolve(__dirname,'../data/questions.json'),{encoding:'utf8'});
-const questions = JSON.parse(questionData);
-module.exports = questions;
+import Connection from '../db/connect';
+
+const questions = async () => {
+  const sql = 'SELECT * FROM question_table';
+  const { rows } = await Connection.executeQuery(sql);
+  return [...rows];
+};
+
+export default questions;

@@ -20,8 +20,7 @@ const Validator = {
     topic: joi.string().required(),
     happeningOn: joi.string().required(),
     location: joi.string().required(),
-    images: joi.string().required(),
-    tags: joi.array().items(joi.string()),
+    // tags: joi.array().items(joi.string()),
 
   }),
   commentSchema: joi.object().keys({

@@ -1,33 +1,26 @@
-const meetups = require('../models/meetup.js');
+import meetups from'../models/meetup.js';
+import Connection from '../db/connect'; 
 
-const upcomingMeetup =(meetup)=>{
-  
-  const meetupTime =meetup.happeningOn.split('/');
-  const meetupDate = new Date(parseInt(meetupTime[2],10),parseInt(meetupTime[1],10), parseInt(meetupTime[0],10));
-  if(meetupDate.getTime()> (new Date()).getTime()){
+const getAllUpcomingMeetups = async (req, res) => {
+  const sql = 'SELECT * FROM meetup_table WHERE happening_on > NOW()';
+  const upcommingMeetups = Connection.executeQuery(sql);
+  upcommingMeetups.then((result) => {
+    if (result.rows.length) {
+      return res.status(200).json({
+        status: 200,
+        data: result.rows,
+      });
+    }
 
-  	return true;
-
-}
-  	
-return false;
-console.log(meetupDate.getTime());
+    return res.status(404).json({
+      status: 404,
+      error: 'No any upcoming meetups found',
+    });
+  }).catch((error) => {
+    res.status(500).json({
+      status: 500,
+      error: `Internal server error ${error}`,
+    });
+  });
 };
-
-const getAllUpcomingMeetups = (req,res)=>{
-	const upcoming = meetups.filter(meetup => upcomingMeetup(meetup));
-
-	if(upcoming){
-		return res.json({
-			status:200,
-            data:upcoming
-		    });
-	}
-	return res.json({
-		status:404,
-		error:'There is no any upcoming meetup found',
-	});
-};
-module.exports={
-	getAllUpcomingMeetups
-}
+export default getAllUpcomingMeetups;

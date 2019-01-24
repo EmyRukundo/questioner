@@ -27,7 +27,7 @@ class Connection {
     phone_number CHAR(100) NOT NULL,
     registered DATE NOT NULL,
     is_admin int NOT NULL,
-    password VARCHAR(10) NOT NULL
+    password VARCHAR(100) NOT NULL
         );
         `;
     this.meetupTable = `
@@ -73,7 +73,6 @@ class Connection {
     CREATE TABLE IF NOT EXISTS rsvp_table (
         id UUID PRIMARY KEY,
         created_on DATE NOT NULL,
-        user_id UUID REFERENCES user_table (id) ON DELETE CASCADE,
         meetup_id UUID REFERENCES meetup_table (id) ON DELETE CASCADE,
         answer VARCHAR(10) NOT NULL
     );
@@ -99,14 +98,6 @@ class Connection {
         id UUID PRIMARY KEY,
         meetup UUID REFERENCES meetup_table (id) ON DELETE CASCADE,
         tag UUID REFERENCES tag_table (id) ON DELETE CASCADE
-    );
-    `;
-    this.userImagesTable = `
-    CREATE TABLE IF NOT EXISTS user_images_table (
-        id UUID PRIMARY KEY,
-        user_id UUID REFERENCES user_table (id) ON DELETE CASCADE,
-        url VARCHAR(100) NOT NULL,
-        is_profile int NOT NULL
     );
     `;
     this.initializeDb();
@@ -135,7 +126,6 @@ class Connection {
     await this.executeQuery(this.commentTable);
     await this.executeQuery(this.meetupImagesTable);
     await this.executeQuery(this.meetupTagsTable);
-    await this.executeQuery(this.userImagesTable);
     await this.executeQuery(this.rsvpTable);
     await this.executeQuery(this.tagTable);
     await this.executeQuery(this.votersTable);
