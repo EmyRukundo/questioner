@@ -26,7 +26,7 @@ const unknownUser = (req, res) => {
                   if(err){
                     console.log(err);
                   }
-              return res.status(202).json({ status: 202, data: userResult.rows, token });
+              return res.status(200).json({ status: 200, data: userResult.rows, token });
             });
           }
         }

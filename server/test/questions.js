@@ -12,7 +12,7 @@ describe('testing questions ', () => {
     it('Should create question', () => {
       const Question = {
         title: 'Better programmer for today and tomorrow',
-        question: 'Which strategies you can use to among the one',
+        question: 'Which strategies you can use to become among the one',
 
       };
       chai.request(app).post('/api/v1/meetups/1').send(Question).end((err, res) => {

@@ -24,14 +24,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 // app.use(logger());
 
-
-
-
-
 app.use('/api/v1/meetups/',meetupsRouter);
-app.use('/api/v1/questions/',questionsRouter);
-app.use('/api/v1/rsvps/',rsvpRouter);
-app.use('/api/v1/user/',userRouter);
+app.use('/api/v1/question/',questionsRouter);
+app.use('/api/v1/meetups',rsvpRouter);
+app.use('/api/v1/auth/',userRouter);
 app.use('/api/v1/upcoming/',meetupsRouter);
 
 app.get('/',(req,res) => {

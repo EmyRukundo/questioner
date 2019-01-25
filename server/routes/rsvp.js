@@ -3,6 +3,6 @@ import rsvpMeetup from '../controllers/rsvpMeetup.js';
 
 const router = express.Router();
 
-router.post('/',rsvpMeetup);
+router.post('/:id/rsvp',rsvpMeetup);
 
 export default router;

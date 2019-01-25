@@ -1,4 +1,4 @@
-import jsonWebToken from 'jsonwebtoken';
+import jsonWebtoken from 'jsonwebtoken';
 const getToken = (req) => {
     if(req.headers['authorization']){
        const token =  req.headers['authorization'].split(' ')[1];
@@ -16,4 +16,3 @@ const getToken = (req) => {
     }
 
 export default getToken;
-

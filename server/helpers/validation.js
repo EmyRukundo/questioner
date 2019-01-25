@@ -32,7 +32,7 @@ const Validator = {
   }),
   validationOption: {
     abortEarly: false,
-    allowUnknown: true,
+    allowUnknown: false,
     stripUnknown: true,
   },
   rsvpSchema: joi.object().keys({

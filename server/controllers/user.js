@@ -6,49 +6,48 @@ import Connection from '../db/connect';
 
 
 
-const registerUser = async (req, res) => {
-  joi.validate(req.body, Validation.userSchema, Validation.validationOption, async (err, result) => {
-    if (err) {
-      return res.json({
-        status: 400,
-        error: err.details[0].message,
-      });
+const createQuestion = (req, res) => {
+  joi.validate(req.body, Validation.questionSchema, Validation.validationOption).then((result) => {
+    let token = 0;
+    let decodedToken = '';
+    let userId = '';
+    if (req.headers.authorization) {
+      token = req.headers.authorization.split(' ')[1];
+      decodedToken = jsonWebToken.verify(token,'secret');
+      userId = decodedToken.user[0].id;
+    } else {
+      return res.sendStatus(403);
     }
-
-    const newUser = [
-      uuid.v4(), 
-      result.firstname,
-      result.othername,
-      result.lastname,
-      result.email,
-      result.username,
-      result.phoneNumber,
-      new Date(), 
-      0, 
-      Helper.hashPassword(result.password, 10),
+    const newQuestion = [
+      uuid.v4(),
+      new Date(),
+      userId,
+      req.params.id, // meetup id
+      result.title,
+      result.body,
+      0,
+      0,
     ];
-    const sql = `INSERT INTO user_table (id,firstname,othername,
-      lastname,email,username,phone_number,registered,is_admin,password)
-     VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10) RETURNING *`;
+    const sql = 'INSERT INTO question_table (id,created_on,created_by,meetup,title,body,upvotes,downvotes) VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING *';
 
-    const user = Connection.executeQuery(sql, newUser);
-    user.then((result) => {
-      console.log(result);
-      if (result.rows.length) {
+    const question = Connection.executeQuery(sql, newQuestion);
+    question.then((questionResult) => {
+      if (questionResult.rows.length) {
         return res.status(201).json({
           status: 201,
-          data: result.rows,
+          data: questionResult.rows,
         });
       }
 
       return res.status(400).json({
         status: 400,
-        error: 'Oops no data found!',
+        error: 'Question could not be created',
       });
     }).catch(error => res.status(500).json({
       status: 500,
-      error: `Internal server Error ${error}`,
+      error: `Internal server error ${error}`,
     }));
-  });
+  }).catch(error => res.status(400).json({ status: 400, error: [...error.details] }));
 };
-export default registerUser;
+
+export default createQuestion;

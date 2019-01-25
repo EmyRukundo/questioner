@@ -6,11 +6,10 @@ import express from 'express';
 
 const router = express.Router();
 
-
+router.get('/:id/comment', getComment);
 router.patch('/:id/upvote',upvote);
 router.patch('/:id/downvote',downvote);
 router.post('/:id/comment', postComment);
-router.get('/', getQuestion);
-router.post('/',createQuestion);
+
 
 export default router;
