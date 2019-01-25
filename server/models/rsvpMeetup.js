@@ -1,6 +1,9 @@
-const fs = require('fs');
-const path = require('path');
+import Connection from '../db/connect';
 
-const rsvpData = fs.readFileSync(path.resolve(__dirname,'../data/rsvpMeetups.json'),{encoding:'utf8'});
-const rsvpMeetups = JSON.parse(rsvpData);
-module.exports = rsvpMeetups;
+const reservations = async () => {
+  const sql = 'SELECT * FROM resvp_table';
+  const { rows } = await Connection.executeQuery(sql);
+  return [...rows];
+};
+
+export default reservations;

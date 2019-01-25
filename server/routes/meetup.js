@@ -1,16 +1,18 @@
-const meetupsController = require('../controllers/meetups');
-const upcomingController = require('../controllers/upcomingMeetups');
-const questionsController = require('../controllers/questions')
+import express from 'express';
+import verifyAuthentication from '../middleware/authenticate';
+import {getMeetups,createMeetups,getSpecificMeetup} from '../controllers/meetups';
+import getAllUpcomingMeetups from '../controllers/upcomingMeetups';
+import createQuestion from '../controllers/questions';
+import rsvpMeetup from '../controllers/rsvpMeetup';
+import deleteMeetup from '../controllers/deleteMeetup';
 
-const express = require('express');
-const router = express.Router();
+const router = express();
+router.delete('/:id/delete', deleteMeetup);
+router.get('/',getAllUpcomingMeetups);
+router.post('/:id/rsvps',verifyAuthentication.verifyToken, rsvpMeetup);
+router.post('/:id/questions',verifyAuthentication.verifyToken,createQuestion);
+router.get('/:id',getSpecificMeetup);
+router.get('/',getMeetups);
+router.post('/',verifyAuthentication.verifyToken,verifyAuthentication.isAdmin,createMeetups);
 
-router.get('/upcoming',upcomingController.getAllUpcomingMeetups);
-router.get('/:id/questions',questionsController.getQuestions);
-router.get('/:id',meetupsController.getSpecificMeetup);
-router.get('/',meetupsController.getMeetups);
-router.post('/:id/questions',questionsController.createQuestion);
-router.post('/',meetupsController.createMeetups);
-
-
-module.exports=router;
+export default router;

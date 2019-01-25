@@ -1,11 +1,15 @@
-const questionsController = require('../controllers/questions')
-const upvoteContoller = require('../controllers/upvotes');
-const downvoteController = require('../controllers/downvotes');
-const express = require('express');
+import {getQuestion,createQuestion} from '../controllers/questions';
+import upvote from '../controllers/upvotes';
+import downvote from '../controllers/downvotes';
+import { getComment, postComment } from '../controllers/comment';
+import express from 'express';
+
 const router = express.Router();
 
-// router.post('/',questionsController.createQuestion);
-router.patch('/:id/upvote',upvoteContoller.upvoteQuestion);
-router.patch('/:id/downvote',downvoteController.downvoteQuestion);
+router.get('/:id/comment', getComment);
+router.patch('/:id/upvote',upvote);
+router.patch('/:id/downvote',downvote);
+router.post('/:id/comment', postComment);
 
-module.exports=router;
+
+export default router;

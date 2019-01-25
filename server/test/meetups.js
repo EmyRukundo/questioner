@@ -1,16 +1,15 @@
-const chai = require ('chai');
-const chaiHttp = require('chai-http');
-const app = require ('../config/app');
+import chai from 'chai';
+import chaiHttp from 'chai-http';
+import app from '../config/app';
+
 process.env.NODE_ENV = 'test';
-const should = chai.should();
+chai.should();
 chai.use(chaiHttp);
 
-
+describe('testing meetups', () => {
   describe('/GET /api/v1/meetups', () => {
-    it('Should get all meetups', () => {
-      chai.request(app)
-      .get('/api/v1/meetups')
-      .end((err, res) => {
+    it('Should get all the meetups', () => {
+      chai.request(app).get('/api/v1/meetups').end((err, res) => {
         res.should.have.status(200);
         res.body.should.be.a('object');
       });
@@ -19,67 +18,65 @@ chai.use(chaiHttp);
 
   
   describe('/GET /api/v1/meetups/:id', () => {
-    it('Should get a specific meetups', () => {
-      chai.request(app)
-      .get('/api/v1/meetups/1')
-      .end((err, res) => {
-        res.should.have.status(200);
-        res.body.should.be.a('object');
-      });
+    it('Should get a specific meetup', () => {
+      chai.request(app).get('/api/v1/meetups/1')
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.be.a('object');
+        });
     });
   });
   
   describe('/GET /api/v1/meetups/upcoming', () => {
     it('Should get all upcoming meetups', () => {
-      chai.request(app)
-      .get('/api/v1/meetups/upcoming')
-      .end((err, res) => {
-        res.should.have.status(200);
-        res.body.should.be.a('object');
-      });
+      chai.request(app).get('/api/v1/meetups/upcoming')
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.be.a('object');
+        });
     });
   });
 
   describe('/POST /api/v1/meetups', () => {
     it('Should post a meetup', () => {
       const newMeetup = {
-        location: 'Telecom house',
-        topic: 'Andela open session',
+        location: 'Kigali Rwanda',
+        topic: 'How to become a world sosftware developer',
         happeningOn: new Date(2019, 3, 3),
-        tags: ['programing', 'talent development', 'bootcamp induction'],
+        tags: ['Andela', 'sosftware Development', 'Kigali Andela Bootcamp'],
       };
-      chai.request(app).post('/api/v1/meetups')
-      .send(newMeetup)
-      .end((err, res) => {
-        try {
-    
-          res.body.should.be.a('object');
-          
-        } catch (error) {
+      chai.request(app).post('/api/v1/meetups').send(newMeetup).end((error, res) => {
+        res.should.have.status(200);
+        res.body.should.be.a('object');
+        const meetup = res.body.data;
+        meetup.should.have.property('id').eql(meetup.id);
+        meetup.should.have.property('createdOn');
+        meetup.should.have.property('location');
+        meetup.should.have.property('images');
+        meetup.should.have.property('topic');
+        meetup.should.have.property('happeningOn');
+        meetup.should.have.property('tags');
+      })
+        .catch((error) => {
           throw error;
-        }
-      });
+        });
     });
   });
-
+  
   describe('/GET /api/v1/meetups/:id/rsvp', () => {
-    it('Should reserve place to meetup with id of 5', () => {
-      const newRsvpMeetup = {
+    it('Should confirm to attend meetup ', () => {
+      const reservation = {
         id: 1,
-        specific_meetup: 1,
-        user: 1,
-        status: "yes"
+        meetup: 1,
+        answer: 'Yes',
       };
-      chai.request(app)
-      .post('/api/v1/meetups/1/rsvp')
-      .send(newRsvpMeetup)
-      .end((err, res) => {
+      chai.request(app).post('/api/v1/meetups/1/rsvp').send(reservation).end((err, res) => {
         try {
-         //should.exist(res.body);
-          res.body.should.be.a('object');
+          res.should.have.status(200);
         } catch (error) {
           throw error;
         }
       });
     });
   });
+});
