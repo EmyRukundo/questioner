@@ -4,7 +4,7 @@
   "description": "questioner meetup",
   "main": "app.js",
   "scripts": {
-    "start": "babel-node server/config/app.js",
+    "start": "node --require babel-register server/config/app.js",
     "test": "nyc mocha ./server/config/*.js --compilers js:babel-core/register  --exit",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "dev": "nodemon --require babel-core/register --require babel-polyfill server/config/app.js"
