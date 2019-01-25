@@ -5,49 +5,45 @@ import Helper from '../helpers/helpers';
 import Connection from '../db/connect';
 
 
-
-const createQuestion = (req, res) => {
-  joi.validate(req.body, Validation.questionSchema, Validation.validationOption).then((result) => {
-    let token = 0;
-    let decodedToken = '';
-    let userId = '';
-    if (req.headers.authorization) {
-      token = req.headers.authorization.split(' ')[1];
-      decodedToken = jsonWebToken.verify(token,'secret');
-      userId = decodedToken.user[0].id;
-    } else {
-      return res.sendStatus(403);
-    }
-    const newQuestion = [
-      uuid.v4(),
-      new Date(),
-      userId,
-      req.params.id, // meetup id
-      result.title,
-      result.body,
-      0,
-      0,
+const registerUser = (req, res) => {
+  joi.validate(req.body, Validation.userSchema, Validation.validationOption).then((result) => {
+    const newUser = [
+      uuid.v4(), 
+      result.firstname,
+      result.othername,
+      result.lastname,
+      result.email,
+      result.username,
+      result.phoneNumber,
+      new Date(), // registered on
+      0, // is_admin
+      Helper.hashPassword(result.password, 12),
+      'ABX#4454$', // token
+       // confirmed
     ];
-    const sql = 'INSERT INTO question_table (id,created_on,created_by,meetup,title,body,upvotes,downvotes) VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING *';
+    const sql = `INSERT INTO user_table (id,firstname,othername,
+      lastname,email,username,phone_number,registered,is_admin,password)
+     VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10) RETURNING *`;
 
-    const question = Connection.executeQuery(sql, newQuestion);
-    question.then((questionResult) => {
-      if (questionResult.rows.length) {
+    const user = Connection.executeQuery(sql, newUser);
+    user.then((userResult) => {
+      console.log(userResult.rows)
+      if (userResult.rows.length > 0) {
         return res.status(201).json({
           status: 201,
-          data: questionResult.rows,
+          data: userResult.rows,
         });
       }
 
       return res.status(400).json({
         status: 400,
-        error: 'Question could not be created',
+        error: 'Failed to signup',
       });
     }).catch(error => res.status(500).json({
       status: 500,
-      error: `Internal server error ${error}`,
+      error: `Internal server Error ${error}`,
+      message: console.log(error),
     }));
-  }).catch(error => res.status(400).json({ status: 400, error: [...error.details] }));
+  }).catch(error => res.status(404).json({ status: 404, error: [...error.details] }));
 };
-
-export default createQuestion;
+export default registerUser;
