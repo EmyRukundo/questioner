@@ -6,7 +6,6 @@ import knownUser from '../controllers/login';
 
 const router = express.Router();
 
-
 router.get('/',getUsers);
 router.post('/login',knownUser);
 router.post('/signup',registerUser);

@@ -13,9 +13,14 @@ const Validator = {
   }),
   
   questionSchema: joi.object().keys({
-    title: joi.string().required(),
-    body: joi.string().required(),
+    title: joi.string().alphanum()
+    .required(),
+    body: joi.string().alphanum()
+    .required(),
+    createdBy:joi.string().alphanum()
+    .required(),
   }),
+
   meetupSchema: joi.object().keys({
     topic: joi.string().required(),
     happeningOn: joi.string().required(),
@@ -40,4 +45,4 @@ const Validator = {
   }),
 
 };
-module.exports= Validator
+module.exports = Validator;

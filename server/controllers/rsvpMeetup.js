@@ -4,6 +4,7 @@ import Connection from '../db/connect';
 import uuid from 'uuid';
 import joi from 'joi';
 
+
 let rsvpUser = '99b6d019-ac6e-4c4b-afb5-6cd7d1fb3138';
 
 const rsvpMeetup = async (req, res) => {
@@ -40,6 +41,7 @@ const rsvpMeetup = async (req, res) => {
         error: `Internal server error ${error}`,
       }));
     });
+
 };
 
 export default rsvpMeetup;
