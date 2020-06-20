@@ -26,7 +26,7 @@ const verifyToken = (req, res, next) => {
 };
 const isAdmin = (req, res, next) => {
   if (getToken(req)) {
-    if (getToken(req).user[0].is_admin === 1) {
+    if (getToken(req).user[0].is_admin ==1) {
       next();
     } else {
       return res.status(401).json({

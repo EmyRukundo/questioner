@@ -2,7 +2,7 @@ import jsonWebtoken from 'jsonwebtoken';
 const getToken = (req) => {
     if(req.headers['authorization']){
        const token =  req.headers['authorization'].split(' ')[1];
-       const tokenData = jsonWebToken.verify(token,'secret');
+       const tokenData = jsonWebtoken.verify(token,'secret');
        if(tokenData) {
            return tokenData;  
        }

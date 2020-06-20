@@ -19,7 +19,6 @@ const registerUser = (req, res) => {
       0, // is_admin
       Helper.hashPassword(result.password, 12),
       'ABX#4454$', // token
-      0, // confirmed
     ];
     const sql = `INSERT INTO user_table (id,firstname,othername,
       lastname,email,username,phone_number,registered,is_admin,password)
@@ -27,7 +26,9 @@ const registerUser = (req, res) => {
 
     const user = Connection.executeQuery(sql, newUser);
     user.then((userResult) => {
-      if (userResult.rows.length) {
+      console.log(userResult.rows)
+      if (userResult.rows.length > 0) {
+
         return res.status(201).json({
           status: 201,
           data: userResult.rows,
@@ -41,6 +42,8 @@ const registerUser = (req, res) => {
     }).catch(error => res.status(500).json({
       status: 500,
       error: `Internal server Error ${error}`,
+      message: console.log(error),
+
     }));
   }).catch(error => res.status(404).json({ status: 404, error: [...error.details] }));
 };
